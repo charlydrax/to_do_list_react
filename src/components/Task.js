@@ -5,23 +5,29 @@ import React from "react"
 function Task() {
         const tacheJson = localStorage.getItem('task') || null;
         const tache = JSON.parse(tacheJson)
-
-        function saveToLocalStorage(name){
-            //convertion de l'objet en chaine, pour que le format soit lisible par le JSON
-            localStorage.setItem('task', JSON.stringify(name))
+        let tableTest = []
+        if(tache != null){
+            let tacheLg = tache.length
+            for(let i=0; i < tacheLg;i++){
+                tableTest.push(tache[i])
+            }
         }
 
         function RemoveTask(task) {
+            //supprimer tout le local storage puis le reremplir avec les info stocké dans tableTest
 
-        // let table = JSON.parse(localStorage.getItem('task'))
-        // console.log(table)
-        console.log(task.idTask)
-        // tache.splice(task.idTask,1);
-        // saveToLocalStorage(task, task)
+            
+            
+            tableTest.splice(task.idTask,1)
+            {localStorage.removeItem(task)}
+            replaceId()
+            {localStorage.setItem('task', JSON.stringify(tableTest))}
 
-
-            {localStorage.removeItem(task.inputValueName)}
-            // {console.dir(task.inputValueName)}
+        }
+        function replaceId() {
+            for(let i=0; i < tableTest.length;i++){
+                tableTest[i].idTask = i
+            }
         }
         return (
         <div>
@@ -37,12 +43,16 @@ function Task() {
                             <summary>Description</summary>
                             {task.inputValue}
                         </details>
-                        <a href="#" onClick={RemoveTask(task)}>supprimer</a> 
+                        <a href="#" onClick={() =>RemoveTask(task)}>supprimer</a> 
+                        {/* {localStorage.removeItem(task)}
+                        {localStorage.setItem('task', JSON.stringify(tableTest))} */}
                     </li>
                 ) :
                 <li id={task.idTask} key={task.idTask}>
                         {`${task.inputValueName}`}
-                        <a href="#" onClick={RemoveTask(task)}>supprimer</a>
+                        <a href="#" onClick={() =>RemoveTask(task)}>supprimer</a>
+                        {/* {localStorage.removeItem(task)}
+                        {localStorage.setItem('task', JSON.stringify(tableTest))} */}
                 </li>
                 )
                 :
