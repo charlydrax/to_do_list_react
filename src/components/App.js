@@ -17,7 +17,7 @@ function App() {
     <div>
       <Header />
       <Cart task={task} updateTask={updateTask}/>
-      <Task/>
+      <Task task={task} updateTask={updateTask}/>
     </div>
   )
 

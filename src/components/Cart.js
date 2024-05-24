@@ -2,9 +2,7 @@ import '../style/Cart.css'
 import { useState } from 'react';
 
 function Cart({ task, updateTask }) {
-    // let id = 1
-    // let state = 'state'
-    // let myInputValue = ""
+
     let color = "black"
 
 
@@ -17,10 +15,10 @@ function Cart({ task, updateTask }) {
           )
           updateTask([
               ...taskFilteredCurrentPlant,
-              {inputValueName,inputValue, color , idTask, amount: currentTaskAdded.amount + 1}
+              {inputValueName, color , idTask}
           ])
       }else {
-        updateTask([...task, {inputValueName,inputValue,color, idTask, amount: + 1}])
+        updateTask([...task, {inputValueName,color, idTask}])
       }
       
     }
@@ -30,12 +28,12 @@ function Cart({ task, updateTask }) {
 
 
      // Déclare une variable d'état pour l'input avec une valeur initiale vide
-    const [inputValue, setInputValue] = useState('');
+    // const [inputValue, setInputValue] = useState('');
     const [inputValueName, setInputValueName] = useState('');
 
-    const handleChange = (event) => {
-      setInputValue(event.target.value);
-    };
+    // const handleChange = (event) => {
+    //   setInputValue(event.target.value);
+    // };
     
     const handleChangeName = (event) => {
       setInputValueName(event.target.value);
@@ -55,12 +53,12 @@ function Cart({ task, updateTask }) {
               value={inputValueName} 
               onChange={handleChangeName}
             />
-            <input
+            {/* <input
               type="text"
               placeholder='Indiquez votre tâche'
               value={inputValue}
               onChange={handleChange}
-            />
+            /> */}
             <p>Choisissez votre couleur</p>
             <button onClick={ColorFunction("#EB6553")}>Rouge</button>
             <button onClick={ColorFunction("#976CAC")}>Violet</button>
