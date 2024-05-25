@@ -10,7 +10,7 @@ function Edit({trigger,setTrigger, task, idOfTask}) {
 
         setTrigger(false)
     }
-    console.log(task)
+    // console.log(task)
     console.log(idOfTask)
 
     return(trigger) ? (

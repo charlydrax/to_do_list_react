@@ -7,6 +7,7 @@ console.log(useState)
 
 function Task({task, updateTask}) {
     const [trigger, setTrigger] = useState(false);
+    let [idOfTask, setidOfTask] = useState("");
 
 
         let tableTest = []
@@ -19,30 +20,29 @@ function Task({task, updateTask}) {
         function RemoveTask(id) {
             //supprimer tout le local storage puis le reremplir avec les info stocké dans tableTest
 
-            
-            
-            // tableTest.splice(task.idTask,1)
-            // localStorage.removeItem(task)
             const updateNewTask = task.filter((_,index)=>
                 index !== id
             )
-            replaceId()
+            // console.log(tableTest[id].idTask)
+            console.log(updateNewTask)
+                replaceId(updateNewTask)
             localStorage.setItem('task', JSON.stringify(updateNewTask))
-            // localStorage.setItem('task', JSON.stringify(tableTest))
-            // let newTask = localStorage.getItem('task')
+
             updateTask(updateNewTask)
+
         }
-        function replaceId() {
-            for(let i=0; i < tableTest.length;i++){
-                tableTest[i].idTask = i
+        function replaceId(updateNewTask) {
+            let updateNewTaskLg = updateNewTask.length
+
+            for(let i=0; i < updateNewTaskLg;i++){
+                updateNewTask[i].idTask = i
             }
         }
-        let idOfTask
-        function Active(id,task) {
+        // let idOfTask
+        function Active(id) {
             setTrigger(true)
             idOfTask = id
-            console.log(idOfTask)
-            console.log(task.idTask)
+            setidOfTask(idOfTask)
         }
 
         return (
@@ -50,17 +50,17 @@ function Task({task, updateTask}) {
             <ul>    
                 {
                     task ?
-                    task.map((task,id) =>
-                        <li id={id} key={id}>
+                    task.map((task) =>
+                        <li id={task.idTask} key={task.idTask}>
                             {`${task.inputValueName}`}
-                            <p onClick={() =>RemoveTask(id)}>supprimer</p>
-                            <p onClick={() =>Active(id,task)}>Modifier</p>
+                            <p onClick={() =>RemoveTask(task.idTask)}>supprimer</p>
+                            <p onClick={() =>Active(task.idTask)}>Modifier</p>
+
                         </li>
                     ) : null
                 }
             </ul>
-            {console.log(idOfTask)}
-            {/* <Edit trigger={trigger} setTrigger={setTrigger} task={task} idOfTask={idOfTask}/> */}
+            <Edit trigger={trigger} setTrigger={setTrigger} task={task} idOfTask={idOfTask}/>
         </React.Fragment>
     );
 }
