@@ -2,6 +2,7 @@ import '../style/Edit.css'
 import { useState } from 'react';
 
 function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
+    let color
     const [inputChange, setinputChange] = useState('');
     const handleChangeValue = (event) => {
             setinputChange(event.target.value);
@@ -17,18 +18,12 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
         
         const updateNewTask = task
         let updateNewTaskLg = updateNewTask.length
-        // console.log(updateNewTaskLg)
 
         for(let i = 0; i<updateNewTaskLg;i++){
-            
-            // console.log(idOfTask)
-            // console.log(updateNewTask[i].idTask)
-
             if(idOfTask === updateNewTask[i].idTask){
-                // console.log(updateNewTask[idOfTask-1].inputValueName)
-                // console.log(inputChange)
                 console.log(updateNewTask[i].inputValueName)
                 updateNewTask[i].inputValueName = inputChange
+                updateNewTask[i].color = color
             }
         }
         replaceId(updateNewTask)
@@ -39,8 +34,6 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
 
         setTrigger(false)
     }
-    // console.log(task)
-
     return(trigger) ? (
         <div>
             <input
@@ -49,6 +42,11 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
                 value={inputChange}
                 onChange={handleChangeValue}
             />
+            <button onClick={() => color="#EB6553"}>Rouge</button>
+            <button onClick={() => color="#976CAC"}>Violet</button>
+            <button onClick={() => color="#4AB2DB"}>Bleu</button>
+            <button onClick={() => color="#46B066"}>Vert</button>
+            <button onClick={() => color="#F8AB42"}>Jaune</button>
             <button onClick={() => savedUpdate(idOfTask)}>Enregistrer les modifications</button>
         </div>
     ) : ""
