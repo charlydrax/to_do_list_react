@@ -20,22 +20,22 @@ function Task({task, updateTask}) {
         function RemoveTask(id) {
             //supprimer tout le local storage puis le reremplir avec les info stocké dans tableTest
 
-            const updateNewTask = task.filter((_,index)=>
+            const updateNewIdTask = task.filter((_,index)=>
                 index !== id
             )
             // console.log(tableTest[id].idTask)
-            console.log(updateNewTask)
-                replaceId(updateNewTask)
-            localStorage.setItem('task', JSON.stringify(updateNewTask))
+            console.log(updateNewIdTask)
+                replaceId(updateNewIdTask)
+            localStorage.setItem('task', JSON.stringify(updateNewIdTask))
 
-            updateTask(updateNewTask)
+            updateTask(updateNewIdTask)
 
         }
-        function replaceId(updateNewTask) {
-            let updateNewTaskLg = updateNewTask.length
+        function replaceId(updateNewIdTask) {
+            let updateNewIdTaskLg = updateNewIdTask.length
 
-            for(let i=0; i < updateNewTaskLg;i++){
-                updateNewTask[i].idTask = i
+            for(let i=0; i < updateNewIdTaskLg;i++){
+                updateNewIdTask[i].idTask = i
             }
         }
         // let idOfTask
@@ -60,7 +60,7 @@ function Task({task, updateTask}) {
                     ) : null
                 }
             </ul>
-            <Edit trigger={trigger} setTrigger={setTrigger} task={task} idOfTask={idOfTask}/>
+            <Edit trigger={trigger} setTrigger={setTrigger} task={task} updateTask={updateTask} idOfTask={idOfTask}/>
         </React.Fragment>
     );
 }

@@ -9,18 +9,7 @@ function Cart({ task, updateTask }) {
     function AddTask(task) {
       let idTask = task.length
       const currentTaskAdded = task.find((task) => task.idTask === idTask)
-      // if(currentTaskAdded) {
-      //     const taskFilteredCurrentPlant = task.filter(
-      //         (task) => task.idTask !== idTask
-      //     )
-      //     updateTask([
-      //         ...taskFilteredCurrentPlant,
-      //         {inputValueName, color , idTask}
-      //     ])
-      // }else {
         updateTask([...task, {inputValueName,color, idTask}])
-      // }
-      
     }
     function ColorFunction(colorChose) {
       color = colorChose
