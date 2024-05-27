@@ -3,12 +3,10 @@ import React from "react"
 import { useState } from "react";
 import Edit from './Edit'
 
-console.log(useState)
 
 function Task({task, updateTask}) {
     const [trigger, setTrigger] = useState(false);
     let [idOfTask, setidOfTask] = useState("");
-
 
         let tableTest = []
         if(task != null){
@@ -23,7 +21,6 @@ function Task({task, updateTask}) {
             const updateNewIdTask = task.filter((_,index)=>
                 index !== id
             )
-            // console.log(tableTest[id].idTask)
             console.log(updateNewIdTask)
                 replaceId(updateNewIdTask)
             localStorage.setItem('task', JSON.stringify(updateNewIdTask))

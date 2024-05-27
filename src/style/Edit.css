@@ -1,4 +1,4 @@
-#saveButton{
+.buttonEdit{
     height: 25px;
     /* width: 75px; */
     font-size: 100%;
@@ -6,8 +6,9 @@
     border: 1px solid #00A3EB;
     color: #eee;
     border-radius: 2px;
+    margin: 15px;
 }
-#saveButton:hover{
+.buttonEdit:hover{
     box-shadow: -1px 1px 4px black;
 }
 .updateColor div{
@@ -21,5 +22,5 @@
     margin: 10px;
 }
 .m-t{
-    margin-top: 10px;
+    margin-top: 20px;
 }

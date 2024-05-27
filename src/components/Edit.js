@@ -2,11 +2,12 @@ import '../style/Edit.css'
 import { useState } from 'react';
 
 function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
-    let color
-    let [inputChange, setinputChange] = useState('');
+    let color = task.color
+    let [inputChange, setinputChange] = useState(task.inputValueName);
     const handleChangeValue = (event) => {
             setinputChange(event.target.value);
         };
+
     function replaceId(updateNewTask) {
 
         let updateNewTaskLg = updateNewTask.length
@@ -25,21 +26,15 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
                 console.log(updateNewTask[i].inputValueName)
                 updateNewTask[i].inputValueName = inputChange
                 updateNewTask[i].color = color
-                console.log(inputChange)
-                inputChange =""
-                console.log(inputChange)
-
             }
         }
         replaceId(updateNewTask)
-        console.log(updateNewTask)
         localStorage.setItem('task', JSON.stringify(updateNewTask))
 
         updateTask(updateNewTask)
         inputChange = ""
         setinputChange(inputChange)
         setTrigger(false)
-        console.log(inputChange)
     }
     return(trigger) ? (
         <div>
@@ -67,7 +62,8 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
                 <div className='colorButton'>Jaune</div>
               </div>
             </div>
-            <button id='saveButton' onClick={() => savedUpdate(idOfTask)}>Enregistrer les modifications</button>
+            <button className='buttonEdit' onClick={() => savedUpdate(idOfTask)}>Enregistrer les modifications</button>
+            <button className='buttonEdit' onClick={() => setTrigger(false)}>Annuler</button>
         </div>
     ) : ""
 }
