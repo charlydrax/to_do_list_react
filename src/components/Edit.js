@@ -3,11 +3,12 @@ import { useState } from 'react';
 
 function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
     let color
-    const [inputChange, setinputChange] = useState('');
+    let [inputChange, setinputChange] = useState('');
     const handleChangeValue = (event) => {
             setinputChange(event.target.value);
         };
     function replaceId(updateNewTask) {
+
         let updateNewTaskLg = updateNewTask.length
 
         for(let i=0; i < updateNewTaskLg;i++){
@@ -24,6 +25,10 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
                 console.log(updateNewTask[i].inputValueName)
                 updateNewTask[i].inputValueName = inputChange
                 updateNewTask[i].color = color
+                console.log(inputChange)
+                inputChange =""
+                console.log(inputChange)
+
             }
         }
         replaceId(updateNewTask)
@@ -31,10 +36,11 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
         localStorage.setItem('task', JSON.stringify(updateNewTask))
 
         updateTask(updateNewTask)
-
+        inputChange = ""
+        setinputChange(inputChange)
         setTrigger(false)
+        console.log(inputChange)
     }
-    setInterval(console.log(color),1000)
     return(trigger) ? (
         <div>
             <input
