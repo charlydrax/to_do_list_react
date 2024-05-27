@@ -3,3 +3,14 @@
   padding: 0;
   margin: 0;
 }
+#container{
+  border: 1px solid;
+  margin: auto;
+  width: 600px;
+  display: grid;
+  padding: 30px;
+}
+h1{
+  color: #68B1E6;
+  text-align: center;
+}

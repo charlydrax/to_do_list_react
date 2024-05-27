@@ -1,0 +1,22 @@
+ul{
+    display: grid;
+    gap: 20px;
+}
+li{
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    border-radius: 5px;
+    grid-template-columns: 4fr 1fr 1fr;
+
+}
+.tacheElement{
+    margin-right: 40px;
+}
+li p{
+    margin: 5px;
+    padding: 5px;
+}
+svg{
+    width: 20px;
+}

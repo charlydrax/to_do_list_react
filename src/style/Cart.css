@@ -1,0 +1,71 @@
+main{
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+input[type="text"]{
+    min-height: 30px;
+    border-radius: 10px;
+    padding-left: 3px;
+}
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.colorButtonContainers{
+    width: 70px;
+    height: 70px;
+    border: 2px solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#rouge{
+    border: 2px solid #EB6553;
+}
+#rouge:hover{
+    background: #EB6553;
+    color: white;
+}
+#violet{
+    border: 2px solid #976CAC;
+}
+#violet:hover{
+    background: #976CAC;
+    color: white;
+}
+#bleu{
+    border: 2px solid #4AB2DB;
+}
+#bleu:hover{
+    background: #4AB2DB;
+    color: white;
+}
+#vert{
+    border: 2px solid #46B066;
+}
+#vert:hover{
+    background: #46B066;
+    color: white;
+}
+#jaune{
+    border: 2px solid #F8AB42;
+}
+#jaune:hover{
+    background: #F8AB42;
+    color: white;
+}
+#add{
+    height: 25px;
+    width: 75px;
+    font-size: 100%;
+    background: gray;
+    border: 1px solid gray;
+    color: #eee;
+}
+#add:hover{
+    box-shadow: -1px 1px 4px black;
+}

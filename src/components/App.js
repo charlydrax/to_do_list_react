@@ -14,8 +14,7 @@ function App() {
 	}, [task])
   return (
     
-    <div>
-      <Header />
+    <div id='container'>
       <Cart task={task} updateTask={updateTask}/>
       <Task task={task} updateTask={updateTask}/>
     </div>
