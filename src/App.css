@@ -4,7 +4,6 @@
   margin: 0;
 }
 #container{
-  border: 1px solid;
   margin: auto;
   width: 600px;
   display: grid;

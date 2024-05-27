@@ -34,20 +34,34 @@ function Edit({trigger,setTrigger, task,updateTask, idOfTask}) {
 
         setTrigger(false)
     }
+    setInterval(console.log(color),1000)
     return(trigger) ? (
         <div>
             <input
+                className='m-t'
                 type="text"
                 placeholder='Changez votre tâche'
                 value={inputChange}
                 onChange={handleChangeValue}
             />
-            <button onClick={() => color="#EB6553"}>Rouge</button>
-            <button onClick={() => color="#976CAC"}>Violet</button>
-            <button onClick={() => color="#4AB2DB"}>Bleu</button>
-            <button onClick={() => color="#46B066"}>Vert</button>
-            <button onClick={() => color="#F8AB42"}>Jaune</button>
-            <button onClick={() => savedUpdate(idOfTask)}>Enregistrer les modifications</button>
+            <div className='buttonContainer updateColor'>
+              <div className='colorButtonContainers' id='rouge' onClick={() => color="#EB6553"}>
+                <div className='colorButton'>Rouge</div>
+              </div>
+              <div className='colorButtonContainers' id='violet' onClick={() => color="#976CAC"}>
+                <div className='colorButton'>Violet</div>
+              </div>
+              <div className='colorButtonContainers' id='bleu' onClick={() => color="#4AB2DB"}>
+                <div className='colorButton'>Bleu</div>
+              </div>
+              <div className='colorButtonContainers' id='vert' onClick={() => color="#46B066"}>
+                <div className='colorButton' >Vert</div>
+              </div>
+              <div className='colorButtonContainers' id='jaune' onClick={() => color="#F8AB42"}>
+                <div className='colorButton'>Jaune</div>
+              </div>
+            </div>
+            <button id='saveButton' onClick={() => savedUpdate(idOfTask)}>Enregistrer les modifications</button>
         </div>
     ) : ""
 }
